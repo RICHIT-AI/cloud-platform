@@ -19,6 +19,6 @@ variable "zone" {
 }
 
 variable "gke_num_nodes" {
-    default = 2
+    default = 0
     description = "Number of GKE Nodes"
 }
