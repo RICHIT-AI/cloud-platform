@@ -2,18 +2,23 @@ variable "project_name" {
   description = "Project Name"
 }
 
-variable "credentials" {
-  description = "Credentials"
+variable "project_id" {
+  description = "GCP Project ID"
 }
 
-variable "project_id" {
-  description = "Project ID"
+variable "credentials" {
+  description = "GCP Service Account"
 }
 
 variable "region" {
-  description = "Region"
+  description = "GCP Region"
 }
 
 variable "zone" {
-  description = "Zone"
+  description = "GCP Zone"
+}
+
+variable "gke_num_nodes" {
+    default = 0
+    description = "Number of GKE Nodes"
 }
