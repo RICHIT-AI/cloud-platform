@@ -10,12 +10,12 @@ variable "credentials" {
   description = "GCP Service Account"
 }
 
-variable "region" {
+variable "project_region" {
   description = "GCP Region"
 }
 
-variable "zone" {
-  description = "GCP Zone"
+variable "gke_location" {
+  description = "GKE Location"
 }
 
 variable "gke_num_nodes" {
