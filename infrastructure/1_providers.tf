@@ -10,6 +10,6 @@ terraform {
 
 provider "google" {
   project = var.project_id
-  region  = var.region
+  region  = var.project_region
   credentials = var.credentials
 }
