@@ -1,5 +1,5 @@
 resource "google_container_cluster" "primary" {
-    name = "${var.project_name}-gke"
+    name = "${var.gcp_project_suffix}-gke"
     location = var.gke_location
 
     remove_default_node_pool = true
@@ -13,7 +13,7 @@ resource "google_container_node_pool" "primary_nodes" {
     name = "${google_container_cluster.primary.name}-node-pool"
     location = var.gke_location
     cluster = google_container_cluster.primary.name
-    node_count = var.gke_num_nodes
+    node_count = var.gke_primary_num_nodes
 
     node_config {
         oauth_scopes = [
@@ -22,11 +22,11 @@ resource "google_container_node_pool" "primary_nodes" {
         ]
 
         labels = {
-            env = var.project_name
+            env = var.gcp_project_suffix
         }
 
-        machine_type = var.gke_machine_type
-        tags = ["gke-node", "${var.project_name}-gke"]
+        machine_type = var.gke_primary_nodeset_machine_type
+        tags = ["gke-node", "${var.gcp_project_suffix}-gke"]
         metadata = {
             disable-legacy-endpoints = "true"
         }
@@ -41,7 +41,7 @@ resource "google_container_node_pool" "secondary_nodes" {
     name = "${google_container_cluster.primary.name}-node-pool2"
     location = var.gke_location
     cluster = google_container_cluster.primary.name
-    node_count = var.gke_num_nodes
+    node_count = var.gke_secondary_num_nodes
 
     node_config {
         oauth_scopes = [
@@ -50,11 +50,11 @@ resource "google_container_node_pool" "secondary_nodes" {
         ]
 
         labels = {
-            env = var.project_name
+            env = var.gcp_project_suffix
         }
 
         machine_type = "n1-standard-1"
-        tags = ["gke-node", "${var.project_name}-gke"]
+        tags = ["gke-node", "${var.gcp_project_suffix}-gke"]
         metadata = {
             disable-legacy-endpoints = "true"
         }
