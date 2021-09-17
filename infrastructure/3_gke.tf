@@ -31,10 +31,6 @@ resource "google_container_node_pool" "primary_nodes" {
             disable-legacy-endpoints = "true"
         }
     }
-
-    lifecycle {
-        create_before_destroy = true
-    }
 }
 
 resource "google_container_node_pool" "secondary_nodes" {
@@ -58,9 +54,5 @@ resource "google_container_node_pool" "secondary_nodes" {
         metadata = {
             disable-legacy-endpoints = "true"
         }
-    }
-
-    lifecycle {
-        create_before_destroy = true
     }
 }
