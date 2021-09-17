@@ -53,7 +53,7 @@ resource "google_container_node_pool" "secondary_nodes" {
             env = var.gcp_project_suffix
         }
 
-        machine_type = "n1-standard-1"
+        machine_type = var.gke_secondary_nodeset_machine_type
         tags = ["gke-node", "${var.gcp_project_suffix}-gke"]
         metadata = {
             disable-legacy-endpoints = "true"
