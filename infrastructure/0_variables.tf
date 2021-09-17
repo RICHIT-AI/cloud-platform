@@ -1,29 +1,39 @@
-variable "project_name" {
-  description = "Project Name"
-}
-
-variable "project_id" {
+variable "gcp_project_id" {
   description = "GCP Project ID"
 }
 
-variable "credentials" {
+variable "gcp_project_suffix" {
+  description = "GCP Resources Suffix"
+}
+
+variable "gcp_credentials" {
   description = "GCP Service Account"
 }
 
-variable "project_region" {
-  description = "GCP Region"
+variable "gcp_project_region" {
+  description = "GCP Project Region"
 }
 
 variable "gke_location" {
   description = "GKE Location"
 }
 
-variable "gke_num_nodes" {
-    default = 0
-    description = "Number of GKE Nodes"
+variable "gke_primary_num_nodes" {
+    default = 1
+    description = "GKE Primary NodeSet"
 }
 
-variable "gke_machine_type" {
+variable "gke_primary_nodeset_machine_type" {
   default = "n1-standard-1"
-  description = "GKE Machine Type"
+  description = "GKE Primary Machine Type"
+}
+
+variable "gke_secondary_num_nodes" {
+    default = 0
+    description = "GKE Secondary NodeSet"
+}
+
+variable "gke_secondary_nodeset_machine_type" {
+  default = "n1-standard-1"
+  description = "GKE Secondary Machine Type"
 }
