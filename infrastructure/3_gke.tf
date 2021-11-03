@@ -1,5 +1,5 @@
 resource "google_container_cluster" "primary" {
-    source = "terraform-google-modules/kubernetes-engine/google//modules/private-cluster"
+    source = "terraform-google-modules/kubernetes-engine/google/modules/private-cluster"
     name = "${var.gcp_project_suffix}-gke"
     location = var.gke_location
     remove_default_node_pool = true
