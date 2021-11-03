@@ -1,12 +1,14 @@
 resource "google_container_cluster" "primary" {
+    source = "terraform-google-modules/kubernetes-engine/google//modules/private-cluster"
     name = "${var.gcp_project_suffix}-gke"
     location = var.gke_location
-
     remove_default_node_pool = true
     initial_node_count = 1
-
     network = google_compute_network.vpc.name
     subnetwork = google_compute_subnetwork.subnet.name
+    enable_private_endpoint    = true
+    enable_private_nodes       = true
+    master_ipv4_cidr_block     = "10.0.0.0/28"
 }
 
 resource "google_container_node_pool" "primary_nodes" {
