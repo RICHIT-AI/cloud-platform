@@ -1,0 +1,22 @@
+
+resources:
+- name: gke-dev-cluster
+  type: container.v1.cluster
+  properties:
+    zone: us-central1-a
+    cluster: 
+      initialClusterVersion: "1.20.10-gke.1600"
+      initialNodeCount: 3
+      #masterAuthorizedNetworksConfig:
+      #  enabled: true
+      #  cidrBlocks: 
+      #  -  displayName: "VPN"
+      #     cidrBlock: "34.121.209.61/32"
+      #ipAllocationPolicy:
+      #  useIpAliases: true
+      #  createSubnetwork: true
+      #  subnetworkName: gke-cluster-subnet
+      #privateClusterConfig:
+      #  enablePrivateNodes: true
+      #  enablePrivateEndpoint: true
+      #  masterIpv4CidrBlock: "10.130.0.0/28"
