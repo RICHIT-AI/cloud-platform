@@ -5,7 +5,6 @@ resources:
   properties:
     zone: us-central1-a
     cluster: 
-      initialClusterVersion: "1.21.9-gke.1002"
       initialNodeCount: 3
       #masterAuthorizedNetworksConfig:
       #  enabled: true
